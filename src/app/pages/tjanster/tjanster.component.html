@@ -1,0 +1,110 @@
+<!-- Hero Banner -->
+<section class="relative pt-32 pb-20 bg-gradient-to-br from-red-700 via-red-800 to-indigo-900 text-white overflow-hidden">
+  <div class="absolute inset-0 opacity-20 pointer-events-none">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-red-400 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
+  </div>
+  <div class="relative z-10 container mx-auto px-4 text-center">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">Våra Tjänster</h1>
+    <p class="text-lg text-red-100 max-w-2xl mx-auto">
+      Professionell bilservice för alla märken och modeller
+    </p>
+  </div>
+</section>
+
+<!-- 2-column horizontal service cards -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      @for (service of services; track service.title) {
+        <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-row group">
+          <!-- Left: photo -->
+          <div class="w-2/5 flex-shrink-0 overflow-hidden">
+            <img [src]="service.image" [alt]="service.title"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <!-- Right: content -->
+          <div class="flex-1 p-6 flex flex-col justify-center">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br {{ service.iconGradient }} flex items-center justify-center shadow-md mb-4">
+              <lucide-icon [img]="service.icon" class="w-6 h-6" color="white"></lucide-icon>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ service.title }}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ service.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Service list -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-md p-8 md:p-10">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Ett Axplock av Våra Tjänster</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- General services -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <lucide-icon [img]="CircleCheck" class="w-5 h-5 text-red-500" color="#ef4444"></lucide-icon>
+            <h3 class="font-bold text-gray-900">Allmän Service &amp; Reparationer</h3>
+          </div>
+          <ul class="space-y-2">
+            @for (item of generalServices; track item) {
+              <li class="flex items-start gap-2 text-gray-600 text-sm">
+                <span class="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></span>
+                {{ item }}
+              </li>
+            }
+          </ul>
+        </div>
+        <!-- Specialist services -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <lucide-icon [img]="CircleCheck" class="w-5 h-5 text-blue-500" color="#3b82f6"></lucide-icon>
+            <h3 class="font-bold text-gray-900">Specialisttjänster</h3>
+          </div>
+          <ul class="space-y-2">
+            @for (item of specialistServices; track item) {
+              <li class="flex items-start gap-2 text-gray-600 text-sm">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></span>
+                {{ item }}
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Brand tags -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-gray-900 mb-3">Axplock av de Bilmärken Vi Arbetar Med</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">
+        Vi har stor kunskap om Audi, Citroën, VW, Peugeot, Renault och Opel, men jobbar med de flesta bilmärkena
+      </p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+      @for (brand of brands; track brand) {
+        <span class="px-5 py-2.5 bg-white border border-gray-200 rounded-full text-gray-700 font-medium text-sm hover:border-red-500 hover:text-red-600 transition-all duration-300 cursor-default shadow-sm">
+          {{ brand }}
+        </span>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Transparent pricing -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-2xl mx-auto bg-gray-50 rounded-2xl shadow-sm border border-gray-100 p-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Transparent Prissättning</h2>
+      <p class="text-gray-600 leading-relaxed">
+        Hos oss får du alltid ett fast pris eller ett tydligt kostnadsförslag innan vi påbörjar arbetet. Inga dolda kostnader eller konstigheter. Kontakta oss för prisuppgift på den tjänst du behöver.
+      </p>
+    </div>
+  </div>
+</section>

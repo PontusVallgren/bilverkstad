@@ -1,0 +1,83 @@
+<footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+      <!-- Column 1: Company Info -->
+      <div class="flex flex-col gap-3">
+        <!-- Company logo -->
+        <img src="images/autoexperten.jpg" alt="Bilverkstan Älvsbacka" class="h-10 w-auto rounded-lg bg-white p-1" />
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Professionell bilservice i Skellefteå sedan många år. Vi tar hand om din bil med expertis och omsorg.
+        </p>
+        <!-- Ansluten till Autoexperten -->
+        <div class="flex items-center gap-3 mt-1">
+          <img src="images/delbetalning.jpg" alt="Ansluten till Autoexperten" class="h-12 w-auto rounded-lg" />
+          <span class="text-gray-300 text-xs">Ansluten till Autoexperten</span>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Snabblänkar</h3>
+        <ul class="space-y-2">
+          @for (link of quickLinks; track link.path) {
+            <li>
+              <a [routerLink]="link.path"
+                 class="text-gray-300 hover:text-red-500 transition-colors text-sm">
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Kontakta Oss</h3>
+        <div class="space-y-3">
+          <a href="tel:091010016" class="flex items-start gap-2 text-gray-300 hover:text-red-500 transition-colors text-sm group">
+            <lucide-icon [img]="Phone" class="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform"></lucide-icon>
+            0910-100 16
+          </a>
+          <a href="mailto:info@bilverkstan.se" class="flex items-start gap-2 text-gray-300 hover:text-red-500 transition-colors text-sm group">
+            <lucide-icon [img]="Mail" class="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform"></lucide-icon>
+            info&#64;bilverkstan.se
+          </a>
+          <div class="flex items-start gap-2 text-gray-300 text-sm">
+            <lucide-icon [img]="MapPin" class="w-4 h-4 mt-0.5 flex-shrink-0"></lucide-icon>
+            Manhemsgatan 16, 931 34 Skellefteå
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 4: Opening Hours -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Öppettider</h3>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-gray-300 text-sm">
+            <lucide-icon [img]="Clock" class="w-4 h-4 flex-shrink-0"></lucide-icon>
+            <div>
+              <div class="font-medium text-white">Mån – Fre</div>
+              <div>07:00 – 16:00</div>
+            </div>
+          </div>
+          <div class="text-gray-400 text-xs pl-6">Lunch: 11:00 – 12:00</div>
+          <div class="flex items-center gap-2 text-gray-300 text-sm pl-6">
+            Lördag – Söndag: Stängt
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-400 text-sm">© 2026 Bilverkstan Älvsbacka AB. Alla rättigheter förbehållna.</p>
+      <div class="flex items-center gap-4">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+           class="text-gray-400 hover:text-red-500 transition-colors">
+          <lucide-icon [img]="Facebook" class="w-5 h-5"></lucide-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

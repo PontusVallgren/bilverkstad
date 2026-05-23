@@ -1,0 +1,142 @@
+<!-- Hero Banner -->
+<section class="relative pt-32 pb-20 bg-gradient-to-br from-red-700 via-red-800 to-indigo-900 text-white overflow-hidden">
+  <div class="absolute inset-0 opacity-20 pointer-events-none">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-red-400 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
+  </div>
+  <div class="relative z-10 container mx-auto px-4 text-center">
+    <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-6 shadow-lg">
+      <lucide-icon [img]="FileText" class="w-8 h-8" color="white"></lucide-icon>
+    </div>
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">Begär Offert</h1>
+    <p class="text-lg text-red-100 max-w-2xl mx-auto">
+      Fyll i formuläret så återkommer vi med ett kostnadsfritt prisförslag
+    </p>
+  </div>
+</section>
+
+<!-- Form Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-2xl mx-auto">
+
+      <!-- Info banner -->
+      <div class="flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-xl px-5 py-4 mb-8">
+        <lucide-icon [img]="Info" class="w-5 h-5 flex-shrink-0" color="#3b82f6"></lucide-icon>
+        <p class="text-blue-800 text-sm font-medium">
+          Kostnadsfritt &amp; Utan Förpliktelser — Vi svarar inom 1 arbetsdag
+        </p>
+      </div>
+
+      @if (submitted()) {
+        <!-- Success message -->
+        <div class="bg-white rounded-2xl shadow-md p-10 text-center">
+          <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <lucide-icon [img]="CheckCircle" class="w-10 h-10" color="#16a34a"></lucide-icon>
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-3">Tack för din förfrågan!</h2>
+          <p class="text-gray-600 text-lg">Vi återkommer till dig inom kort med ett prisförslag. Vid brådskande ärenden, ring oss direkt på
+            <a href="tel:091010016" class="text-red-600 font-semibold hover:text-red-700">0910-100 16</a>.
+          </p>
+        </div>
+      } @else {
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+
+          <!-- Gradient card header -->
+          <div class="bg-gradient-to-r from-red-600 to-blue-600 px-8 py-5">
+            <h2 class="text-white font-bold text-xl">Offertförfrågan</h2>
+            <p class="text-red-100 text-sm mt-1">Fyll i dina uppgifter nedan</p>
+          </div>
+
+          <form (ngSubmit)="onSubmit()" #offertForm="ngForm" class="p-8 space-y-5">
+
+            <!-- Reg number -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Registreringsnummer *</label>
+              <input type="text" name="regNumber" [(ngModel)]="form.regNumber" required
+                     placeholder="ABC 123"
+                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors text-gray-900 uppercase" />
+            </div>
+
+            <!-- Name -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Namn *</label>
+              <input type="text" name="name" [(ngModel)]="form.name" required
+                     placeholder="Anna Andersson"
+                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors text-gray-900" />
+            </div>
+
+            <!-- Phone + Email -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Telefon *</label>
+                <input type="tel" name="phone" [(ngModel)]="form.phone" required
+                       placeholder="070-000 00 00"
+                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors text-gray-900" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">E-post</label>
+                <input type="email" name="email" [(ngModel)]="form.email"
+                       placeholder="anna@exempel.se"
+                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors text-gray-900" />
+              </div>
+            </div>
+
+            <!-- Service type -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Typ av tjänst *</label>
+              <select name="service" [(ngModel)]="form.service" required
+                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors text-gray-900 bg-white">
+                <option value="" disabled selected>Välj tjänst...</option>
+                @for (s of services; track s) {
+                  <option [value]="s">{{ s }}</option>
+                }
+              </select>
+            </div>
+
+            <!-- Priority + Date -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Prioritet</label>
+                <select name="priority" [(ngModel)]="form.priority"
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors text-gray-900 bg-white">
+                  <option value="" disabled selected>Välj prioritet...</option>
+                  @for (p of priorities; track p) {
+                    <option [value]="p">{{ p }}</option>
+                  }
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Önskat datum</label>
+                <div class="relative">
+                  <input type="date" name="date" [(ngModel)]="form.date"
+                         class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors text-gray-900 bg-white" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Ytterligare information</label>
+              <textarea name="message" [(ngModel)]="form.message" rows="4"
+                        placeholder="Beskriv felet eller vad du vill ha hjälp med..."
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:outline-none transition-colors text-gray-900 resize-none">
+              </textarea>
+            </div>
+
+            <!-- Submit -->
+            <div>
+              <button type="submit" [disabled]="offertForm.invalid"
+                      class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl text-lg shadow-md hover:shadow-lg transition-all duration-300">
+                <lucide-icon [img]="Send" class="w-5 h-5" color="white"></lucide-icon>
+                Skicka Offertförfrågan
+              </button>
+              <p class="text-gray-400 text-xs text-center mt-3">* Obligatoriska fält</p>
+            </div>
+
+          </form>
+        </div>
+      }
+    </div>
+  </div>
+</section>

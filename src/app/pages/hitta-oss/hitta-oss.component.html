@@ -1,0 +1,119 @@
+<!-- Hero Banner -->
+<section class="relative pt-32 pb-20 bg-gradient-to-br from-red-700 via-red-800 to-indigo-900 text-white overflow-hidden">
+  <div class="absolute inset-0 opacity-20 pointer-events-none">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-red-400 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
+  </div>
+  <div class="relative z-10 container mx-auto px-4 text-center">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">Hitta till oss</h1>
+    <p class="text-lg text-red-100 max-w-2xl mx-auto">
+      Välkommen till vår moderna bilverkstad i centrala Skellefteå
+    </p>
+  </div>
+</section>
+
+<!-- 4 info cards -->
+<section class="py-12 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center shadow-md mb-4">
+          <lucide-icon [img]="MapPin" class="w-7 h-7" color="white"></lucide-icon>
+        </div>
+        <div class="font-bold text-gray-900 mb-2">Adress</div>
+        <div class="text-gray-500 text-sm">Manhemsgatan 16</div>
+        <div class="text-gray-500 text-sm">931 34 Skellefteå</div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-md mb-4">
+          <lucide-icon [img]="Phone" class="w-7 h-7" color="white"></lucide-icon>
+        </div>
+        <div class="font-bold text-gray-900 mb-2">Telefon</div>
+        <a href="tel:091010016" class="text-blue-600 hover:text-blue-700 font-medium text-sm">0910-100 16</a>
+        <div class="text-gray-400 text-xs mt-1">Fax: 0910-560 63</div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-md mb-4">
+          <lucide-icon [img]="Mail" class="w-7 h-7" color="white"></lucide-icon>
+        </div>
+        <div class="font-bold text-gray-900 mb-2">E-post</div>
+        <a href="mailto:info@bilverkstan.se" class="text-purple-600 hover:text-purple-700 font-medium text-sm break-all">info&#64;bilverkstan.se</a>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-md mb-4">
+          <lucide-icon [img]="Clock" class="w-7 h-7" color="white"></lucide-icon>
+        </div>
+        <div class="font-bold text-gray-900 mb-2">Öppettider</div>
+        <div class="text-gray-500 text-sm">07:00 - 16:00</div>
+        <div class="text-gray-400 text-xs mt-1">Lunch: 11:00 - 12:00</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Map + Directions -->
+<section class="py-12 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-6 items-start">
+
+      <!-- Map -->
+      <div class="rounded-2xl overflow-hidden shadow-md border border-gray-100">
+        <iframe
+          src="https://maps.google.com/maps?q=Manhemsgatan+16,+Skelleftea,+Sweden&output=embed&z=15"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Bilverkstan Älvsbacka AB">
+        </iframe>
+      </div>
+
+      <!-- Directions -->
+      <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-blue-600 flex items-center justify-center shadow-md mb-5">
+          <lucide-icon [img]="Navigation2" class="w-7 h-7" color="white"></lucide-icon>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">Vägbeskrivning</h2>
+        <p class="text-gray-500 mb-6 leading-relaxed">
+          Vi ligger centralt beläget på Manhemsgatan 16 i Skellefteå. Lätt att hitta med både bil och kollektivtrafik.
+        </p>
+
+        <div class="space-y-3 mb-6">
+          <div class="bg-gray-50 rounded-xl p-4">
+            <div class="font-semibold text-gray-900 mb-1">Med Bil</div>
+            <div class="text-gray-500 text-sm">Parkering finns tillgänglig i anslutning till verkstaden. Följ skyltar till Manhemsgatan.</div>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-4">
+            <div class="font-semibold text-gray-900 mb-1">Med Buss</div>
+            <div class="text-gray-500 text-sm">Närmaste busshållplats ligger inom gångavstånd. Kontakta oss för detaljerad information.</div>
+          </div>
+        </div>
+
+        <a href="https://maps.google.com/?q=Manhemsgatan+16+Skelleftea+Sweden"
+           target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 text-white font-semibold py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+          <lucide-icon [img]="Navigation2" class="w-5 h-5" color="white"></lucide-icon>
+          Öppna i Google Maps
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Visit us -->
+<section class="py-16 bg-gray-50 text-center">
+  <div class="container mx-auto px-4 max-w-2xl">
+    <h2 class="text-2xl font-bold text-gray-900 mb-3">Besök Oss</h2>
+    <p class="text-gray-500 leading-relaxed">
+      Du är alltid välkommen att besöka oss under öppettider. Våra kunniga mekaniker tar gärna emot dig och diskuterar dina bilbehov. Vi erbjuder kostnadsförslag utan förpliktelser.
+    </p>
+  </div>
+</section>
