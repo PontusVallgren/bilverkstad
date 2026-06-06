@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { LucideAngularModule, Phone, Mail, MapPin, Clock, Send, CheckCircle, CircleCheck } from 'lucide-angular';
+import { LucideAngularModule, Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-angular';
 
 @Component({
   selector: 'app-kontakt',
@@ -16,7 +16,6 @@ export class KontaktComponent {
   readonly Clock = Clock;
   readonly Send = Send;
   readonly CheckCircle = CheckCircle;
-  readonly CircleCheck = CircleCheck;
 
   submitted = signal(false);
 

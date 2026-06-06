@@ -20,7 +20,7 @@ export class HomeComponent {
   services = [
     {
       title: 'Bilreparationer',
-      description: 'Professionella reparationer av alla bilmärken. Vi hanterar allt från mindre skador till omfattande reparationer med högsta kvalitet.',
+      description: 'Professionella reparationer av de flesta bilmärken. Vi hanterar allt från mindre skador till omfattande reparationer med högsta kvalitet.',
       icon: Wrench,
       image: 'images/service1.jpg',
     },
@@ -28,19 +28,19 @@ export class HomeComponent {
       title: 'Bilservice',
       description: 'Regelbunden service håller din bil i toppskick. Vi följer tillverkarens serviceprogram och använder kvalitetsdelar.',
       icon: Settings,
-      image: 'images/service2.jpg',
+      image: 'images/bilservice.jpg',
     },
     {
       title: 'AC-Service',
       description: 'Komplett service av din luftkonditionering. Vi ser till att AC-systemet fungerar optimalt året runt.',
       icon: Wind,
-      image: 'images/service3.jpg',
+      image: 'images/ac-service.jpg',
     },
     {
       title: 'Hjulinställning',
       description: 'Professionell hjulinställning för jämnt däckslitage och bättre köregenskaper.',
       icon: CircleDot,
-      image: 'images/service1.jpg',
+      image: 'images/hjulinstallning.jpg',
     },
   ];
 
