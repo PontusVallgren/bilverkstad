@@ -43,3 +43,6 @@ Thumbs.db
 
 # Claude Code
 .claude/
+
+# Server secrets (created by hand on the host, never committed)
+/server/config.php

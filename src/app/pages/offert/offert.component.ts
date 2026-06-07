@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LucideAngularModule, Send, CheckCircle, FileText, Info, Calendar } from 'lucide-angular';
+import { MailService } from '../../services/mail.service';
 
 @Component({
   selector: 'app-offert',
@@ -16,7 +17,11 @@ export class OffertComponent {
   readonly Info = Info;
   readonly Calendar = Calendar;
 
+  private readonly mailService = inject(MailService);
+
   submitted = signal(false);
+  sending = signal(false);
+  error = signal<string | null>(null);
 
   form = {
     regNumber: '',
@@ -27,6 +32,7 @@ export class OffertComponent {
     priority: '',
     date: '',
     message: '',
+    company: '', // honeypot — must stay empty
   };
 
   services = [
@@ -46,6 +52,21 @@ export class OffertComponent {
   ];
 
   onSubmit() {
-    this.submitted.set(true);
+    if (this.sending()) {
+      return;
+    }
+    this.sending.set(true);
+    this.error.set(null);
+
+    this.mailService.sendOffert(this.form).subscribe({
+      next: () => {
+        this.sending.set(false);
+        this.submitted.set(true);
+      },
+      error: () => {
+        this.sending.set(false);
+        this.error.set('Något gick fel. Försök igen eller ring oss på 0910-100 16.');
+      },
+    });
   }
 }

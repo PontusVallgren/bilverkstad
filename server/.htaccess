@@ -1,0 +1,21 @@
+# Deploy this file to the one.com web root, next to index.html.
+#
+# It does two things:
+#  1. Lets PHP under /api/ run normally (the mail endpoint).
+#  2. Routes every other non-file request to index.html so Angular's
+#     client-side router handles deep links / page refreshes.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Don't rewrite real files or directories (assets, /api/send-mail.php, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Leave the API alone.
+  RewriteRule ^api/ - [L]
+
+  # Everything else -> Angular's index.html
+  RewriteRule ^ index.html [L]
+</IfModule>

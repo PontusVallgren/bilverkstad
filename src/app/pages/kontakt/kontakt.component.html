@@ -91,6 +91,13 @@
           } @else {
             <form (ngSubmit)="onSubmit()" #kontaktForm="ngForm" class="space-y-5">
 
+              <!-- Honeypot (hidden from humans, catches bots) -->
+              <div class="absolute left-[-9999px]" aria-hidden="true">
+                <label>Lämna detta fält tomt
+                  <input type="text" name="company" [(ngModel)]="form.company" tabindex="-1" autocomplete="off" />
+                </label>
+              </div>
+
               <!-- Name -->
               <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Namn *</label>
@@ -124,12 +131,19 @@
                 </textarea>
               </div>
 
+              <!-- Error message -->
+              @if (error()) {
+                <div class="bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3">
+                  {{ error() }}
+                </div>
+              }
+
               <!-- Submit -->
               <div>
-                <button type="submit" [disabled]="kontaktForm.invalid"
+                <button type="submit" [disabled]="kontaktForm.invalid || sending()"
                         class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl text-lg shadow-md hover:shadow-lg transition-all duration-300">
                   <lucide-icon [img]="Send" class="w-5 h-5" color="white"></lucide-icon>
-                  Skicka Meddelande
+                  {{ sending() ? 'Skickar…' : 'Skicka Meddelande' }}
                 </button>
                 <p class="text-gray-400 text-xs text-center mt-3">* Obligatoriska fält</p>
               </div>
