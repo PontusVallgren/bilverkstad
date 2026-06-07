@@ -26,21 +26,21 @@ export class TjansterComponent {
       iconGradient: 'from-violet-500 to-purple-600',
       title: 'Bilservice',
       description: 'Regelbunden service håller din bil i toppskick. Vi följer tillverkarens serviceprogram och använder kvalitetsdelar.',
-      image: 'images/service2.jpg',
+      image: 'images/bilservice.jpg',
     },
     {
       icon: Wind,
       iconGradient: 'from-blue-500 to-violet-500',
       title: 'AC-Service',
       description: 'Komplett service av din luftkonditionering. Vi ser till att AC-systemet fungerar optimalt året runt.',
-      image: 'images/service3.jpg',
+      image: 'images/ac-service.jpg',
     },
     {
       icon: CircleDot,
       iconGradient: 'from-violet-600 to-pink-500',
       title: 'Hjulinställning',
       description: 'Professionell hjulinställning för jämnt däckslitage och bättre köregenskaper.',
-      image: 'images/service2.jpg',
+      image: 'images/hjulinstallning.jpg',
     },
   ];
 
@@ -54,7 +54,7 @@ export class TjansterComponent {
 
   specialistServices = [
     'AC-service och klimatanläggning – Komplett service',
-    'Hjulinställning från 900kr – För bättre köregenskaper',
+    'Hjulinställning – För bättre köregenskaper',
     'Däckbyte och balansering',
     'Eldiagnostik och elektronik',
     'Besiktningsförberedelse',
