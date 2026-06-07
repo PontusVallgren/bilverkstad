@@ -20,7 +20,7 @@ export class HomeComponent {
   services = [
     {
       title: 'Bilreparationer',
-      description: 'Professionella reparationer av alla bilmärken. Vi hanterar allt från mindre skador till omfattande reparationer med högsta kvalitet.',
+      description: 'Professionella reparationer av de flesta bilmärken. Vi hanterar allt från mindre skador till omfattande reparationer med högsta kvalitet.',
       icon: Wrench,
       image: 'images/service1.jpg',
     },
