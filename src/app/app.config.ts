@@ -1,4 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { LUCIDE_ICONS, LucideIconProvider } from 'lucide-angular';
 import {
@@ -13,6 +14,7 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(),
     provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
     {
       provide: LUCIDE_ICONS,
